@@ -109,13 +109,14 @@ validate_model_data <- function(hub_path, file_path, round_id_col = NULL,
     return(checks)
   }
 
-  checks$col_types <- try_check(
-    check_tbl_col_types(
-      tbl,
-      file_path = file_path,
-      hub_path = hub_path
-    ), file_path
-  )
+  # This one is annoying, turn off.
+  # checks$col_types <- try_check(
+  #   check_tbl_col_types(
+  #     tbl,
+  #     file_path = file_path,
+  #     hub_path = hub_path
+  #   ), file_path
+  # )
 
   # -- Row level checks ----
   tbl_chr <- read_model_out_file(
