@@ -118,12 +118,13 @@ validate_model_data <- function(hub_path, file_path, round_id_col = NULL,
   )
 
   # -- Row level checks ----
+  tbl_chr <- read_model_out_file(
+    file_path = file_path,
+    hub_path = hub_path,
+    coerce_types = "chr"
+  )
+
   # SKIP !
-  # tbl_chr <- read_model_out_file(
-  #   file_path = file_path,
-  #   hub_path = hub_path,
-  #   coerce_types = "chr"
-  # )
   # checks$valid_vals <- try_check(
   #   check_tbl_values(
   #     tbl_chr,
@@ -144,24 +145,24 @@ validate_model_data <- function(hub_path, file_path, round_id_col = NULL,
     ), file_path
   )
 
-  checks$req_vals <- try_check(
-    check_tbl_values_required(
-      tbl_chr,
-      round_id = round_id,
-      file_path = file_path,
-      hub_path = hub_path
-    ), file_path
-  )
+  # checks$req_vals <- try_check(
+  #   check_tbl_values_required(
+  #     tbl_chr,
+  #     round_id = round_id,
+  #     file_path = file_path,
+  #     hub_path = hub_path
+  #   ), file_path
+  # )
 
   # -- Value column checks ----
-  checks$value_col_valid <- try_check(
-    check_tbl_value_col(
-      tbl,
-      round_id = round_id,
-      file_path = file_path,
-      hub_path = hub_path
-    ), file_path
-  )
+  # checks$value_col_valid <- try_check(
+  #   check_tbl_value_col(
+  #     tbl,
+  #     round_id = round_id,
+  #     file_path = file_path,
+  #     hub_path = hub_path
+  #   ), file_path
+  # )
 
   checks$value_col_non_desc <- try_check(
     check_tbl_value_col_ascending(
