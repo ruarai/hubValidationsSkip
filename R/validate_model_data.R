@@ -124,6 +124,8 @@ validate_model_data <- function(hub_path, file_path, round_id_col = NULL,
     coerce_types = "chr"
   )
 
+  print("NOTE: Skipping some checks to avoid out-of-memory error.")
+
   # SKIP !
   # checks$valid_vals <- try_check(
   #   check_tbl_values(
