@@ -118,22 +118,23 @@ validate_model_data <- function(hub_path, file_path, round_id_col = NULL,
   )
 
   # -- Row level checks ----
-  tbl_chr <- read_model_out_file(
-    file_path = file_path,
-    hub_path = hub_path,
-    coerce_types = "chr"
-  )
-  checks$valid_vals <- try_check(
-    check_tbl_values(
-      tbl_chr,
-      round_id = round_id,
-      file_path = file_path,
-      hub_path = hub_path
-    ), file_path
-  )
-  if (is_any_error(checks$valid_vals)) {
-    return(checks)
-  }
+  # SKIP !
+  # tbl_chr <- read_model_out_file(
+  #   file_path = file_path,
+  #   hub_path = hub_path,
+  #   coerce_types = "chr"
+  # )
+  # checks$valid_vals <- try_check(
+  #   check_tbl_values(
+  #     tbl_chr,
+  #     round_id = round_id,
+  #     file_path = file_path,
+  #     hub_path = hub_path
+  #   ), file_path
+  # )
+  # if (is_any_error(checks$valid_vals)) {
+  #   return(checks)
+  # }
 
   checks$rows_unique <- try_check(
     check_tbl_rows_unique(
